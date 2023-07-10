@@ -1,5 +1,10 @@
 part of 'update_bloc.dart';
 
-class UpdateState {}
+class UpdateState {
+  List<StudentModel> studentlist;
+  UpdateState({required this.studentlist});
+}
 
-class UpdateInitial extends UpdateState {}
+class UpdateInitial extends UpdateState {
+  UpdateInitial({required super.studentlist});
+}

@@ -14,12 +14,6 @@ class StudentRemove extends HomeBlocEvent {
 
 class StudentGetAll extends HomeBlocEvent {}
 
-class StudentEdit extends HomeBlocEvent {
-  StudentModel data;
-  int editingindex;
-  int key;
-  StudentEdit({required this.data, required this.editingindex,required this.key});
-}
 
 
 

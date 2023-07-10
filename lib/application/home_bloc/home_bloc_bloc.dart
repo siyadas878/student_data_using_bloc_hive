@@ -24,13 +24,7 @@ class HomeBlocBloc extends Bloc<HomeBlocEvent, HomeBlocState> {
       return emit(HomeBlocState(studentlist: value));
     });
 
-    on<StudentEdit>((event, emit)async {
-      List<StudentModel> value =await update(key: event.key,
-          data: event.data,
-          studentlist: state.studentlist,
-          editingindex: event.editingindex);
-      return emit(HomeBlocState(studentlist: value));
-    });
+
 
   }
 }

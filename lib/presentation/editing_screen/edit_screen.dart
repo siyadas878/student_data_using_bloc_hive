@@ -2,7 +2,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:sample_details_hive_bloc/application/home_bloc/home_bloc_bloc.dart';
+import 'package:sample_details_hive_bloc/presentation/home/home_screen.dart';
+import '../../application/update_bloc/update_bloc.dart';
 import '../../core/constans.dart';
 import '../../domain/student_model.dart';
 
@@ -32,7 +33,7 @@ class EditScreen extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(15.0),
             child: SingleChildScrollView(
-              child: BlocBuilder<HomeBlocBloc, HomeBlocState>(
+              child: BlocBuilder<UpdateBloc, UpdateState>(
                 builder: (context, state) {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -66,10 +67,10 @@ class EditScreen extends StatelessWidget {
                                   place: place.text,
                                   name: name.text,
                                   age: age.text);
-                              BlocProvider.of<HomeBlocBloc>(context).add(
+                              BlocProvider.of<UpdateBloc>(context).add(
                                   StudentEdit(key: data.key,
                                       data: edited, editingindex: dataIndex));
-                              Navigator.of(context).pop();
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
                             }
                           }),
                           child: const Text('Update')),
