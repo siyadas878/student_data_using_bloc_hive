@@ -70,7 +70,7 @@ class EditScreen extends StatelessWidget {
                               BlocProvider.of<UpdateBloc>(context).add(
                                   StudentEdit(key: data.key,
                                       data: edited, editingindex: dataIndex));
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
+                              Navigator.push(context, MaterialPageRoute(builder: (context) =>const HomeScreen(),));
                             }
                           }),
                           child: const Text('Update')),

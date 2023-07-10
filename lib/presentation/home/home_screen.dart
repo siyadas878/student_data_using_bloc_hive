@@ -48,7 +48,11 @@ class HomeScreen extends StatelessWidget {
                     }
                     return ListTile(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => DetsilScreen(data: stu),));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetsilScreen(data: stu),
+                            ));
                       },
                       title: Text(stu.name),
                       subtitle: Column(
@@ -88,8 +92,32 @@ class HomeScreen extends StatelessWidget {
                               icon: const Icon(Icons.edit)),
                           IconButton(
                               onPressed: () {
-                                BlocProvider.of<HomeBlocBloc>(context)
-                                    .add(StudentRemove(data: stu));
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      title:const Text('Delete'),
+                                      content:const Text('Do yo want to Delete'),
+                                      actions: <Widget>[
+                                        TextButton(
+                                          child:const Text('CANCEL'),
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                        ),
+                                        TextButton(
+                                          child:const Text('DELETE'),
+                                          onPressed: () {
+                                            BlocProvider.of<HomeBlocBloc>(
+                                                    context)
+                                                .add(StudentRemove(data: stu));
+                                            Navigator.of(context).pop();
+                                          },
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
                               },
                               icon: const Icon(Icons.delete))
                         ],
