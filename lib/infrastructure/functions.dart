@@ -15,7 +15,7 @@ Future<List<StudentModel>> getalldata() async {
   final db = await Hive.openBox<StudentModel>('student.db');
   studentlistnotifier.clear();
   studentlistnotifier.addAll(db.values);
-  print(db.values.length);
+  // print(db.values.length);
   return studentlistnotifier;
 }
 
@@ -43,9 +43,9 @@ Future<List<StudentModel>> update(
     required int editingindex}) async{
  final db = await Hive.openBox<StudentModel>('student.db');
  // int key = data.key;
-   print(key);
+  //  print(key);
   await db.put(key, data);
   studentlist[editingindex] = data;
-  print(studentlist.length);
+  // print(studentlist.length);
   return studentlist;
 }

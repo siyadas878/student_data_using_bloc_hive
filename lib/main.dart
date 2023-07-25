@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         BlocProvider<HomeBlocBloc>(
           create: (context) => HomeBlocBloc(),
         ),
-                BlocProvider<SearchBloc>(
+        BlocProvider<SearchBloc>(
           create: (context) => SearchBloc(),
         ),
         BlocProvider<UpdateBloc>(
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
-            fontFamily: GoogleFonts.montserrat().fontFamily,
+              fontFamily: GoogleFonts.montserrat().fontFamily,
               scaffoldBackgroundColor: Colors.white,
               primaryColor: Colors.black,
               primarySwatch: Colors.teal),

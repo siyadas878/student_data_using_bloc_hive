@@ -16,6 +16,7 @@ class HomeBlocBloc extends Bloc<HomeBlocEvent, HomeBlocState> {
     on<StudentRemove>((event, emit) async {
       List<StudentModel> value = studentDbDelete(
           data: event.data, studentlist: state.studentlist);
+          // await Future.delayed(const Duration(seconds: 3));
       return emit(HomeBlocState(studentlist: value));
     });
 
